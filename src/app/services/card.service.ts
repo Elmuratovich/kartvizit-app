@@ -9,6 +9,7 @@ import { Card } from '../models/card';
 export class CardService {
 
   cards!: Card[];
+  filterCard!: Card[]; 
 
   constructor(
     @Inject('apiUrl') private apiUrl: string,
@@ -20,6 +21,7 @@ export class CardService {
     this.http.get<Card[]>(this.apiUrl + '/cards')
     .subscribe((res: Card[]) => {
       this.cards = res;
+      this.cards = this.filterCard = res;
     });
   }
 
