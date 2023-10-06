@@ -26,6 +26,7 @@ export class CardService {
   }
 
   addCard(card: Card): Observable<any>{
+    // insert card 
     return this.http.post(this.apiUrl+'/cards', card);
   }
 
